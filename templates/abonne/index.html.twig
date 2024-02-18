@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des abonnées
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="text-center fw-bold">Liste des Abonnées</h1>
+
+	<div class="container mt-5">
+		<table class="table table-responsive">
+			<thead>
+				<tr class="text-center">
+					<th>ID</th>
+					<th>Prénom</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for abonne in abonnes %}
+					<tr class="text-center ">
+						<td>{{ abonne.id }}</td>
+						<td>{{ abonne.prenom }}</td>
+						<td>
+							<a href="{{ path('edit_abonne', {'id': abonne.id}) }}" class="btn  btn-info btn-sm">
+								<i class="fas fa-edit"></i>
+							</a>
+							<a href="#" class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#confirmDeleteModal{{ abonne.id }}">
+								<i class="fas fa-trash-alt"></i>
+							</a>
+						</td>
+					</tr>
+					<!-- Modale de confirmation de suppression -->
+
+					<div class="modal fade" id="confirmDeleteModal{{ abonne.id }}" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="confirmDeleteModalLabel">Confirmation de suppression</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									Êtes-vous sûr de vouloir supprimer
+									{{abonne.prenom}}
+									?
+								</div>
+
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+									<a type="button" class="btn btn-danger" id="deleteButton" href="{{ path('delete_abonne', {'id': abonne.id} ) }}">Supprimer</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+
+
+{% endblock %}

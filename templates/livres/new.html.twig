@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un livre{% endblock %}
+
+{% block body %}
+{% if app.request.attributes.get('_route') == 'new_livre' %}
+<h1 class="text-center">Ajout d'un livre</h1>
+{% elseif app.request.attributes.get('_route') == 'edit_livre' %}
+<h1 class="text-center">Modification d'un livre</h1>
+{% endif %}
+
+<div class="container">
+{{ form_start(livreForm)}}
+
+{{ form_end(livreForm)}}
+</div>
+{% endblock body %}

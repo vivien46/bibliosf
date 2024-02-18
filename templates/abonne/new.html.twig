@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un abonné{% endblock %}
+
+{% block body %}
+{% if app.request.attributes.get('_route') == 'new_abonne' %}
+<h1 class="text-center">Ajout d'un abonné</h1>
+{% elseif app.request.attributes.get('_route') == 'edit_abonne' %}
+<h1 class="text-center">Modification d'un abonné</h1>
+{% endif %}
+
+<div class="container">
+{{ form_start(abonneForm)}}
+
+{{ form_end(abonneForm)}}
+</div>
+{% endblock body %}

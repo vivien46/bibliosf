@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un emprunt{% endblock %}
+
+{% block body %}
+{% if app.request.attributes.get('_route') == 'new_emprunt' %}
+<h1 class="text-center">Ajout d'un emprunt</h1>
+{% elseif app.request.attributes.get('_route') == 'edit_emprunt' %}
+<h1 class="text-center">Modification de l'emprunt</h1>
+{% endif %}
+
+<div class="container">
+{{ form_start(empruntForm)}}
+
+{{ form_end(empruntForm)}}
+</div>
+{% endblock body %}
