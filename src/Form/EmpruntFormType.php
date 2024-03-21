@@ -23,7 +23,7 @@ class EmpruntFormType extends AbstractType
             ])
             ->add('dateRetour', DateType::class, [
                 // 'widget' => 'single_text', // pour avoir un sélecteur de date au lieu de trois menus déroulants
-                'data' => new \DateTime("now"), // définit la date d'aujourd'hui comme valeur par défaut
+                // 'data' => new \DateTime("now"), // définit la date d'aujourd'hui comme valeur par défaut
             ])
             ->add('livres', EntityType::class, [
                 'class' => Livres::class,

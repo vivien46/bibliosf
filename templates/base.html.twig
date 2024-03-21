@@ -15,7 +15,7 @@
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-sm bg-success navbar-dark">
-			<a class="navbar-brand" href="#">Ma Bibliothèque</a>
+			<a class="navbar-brand" href="{{ path('app_emprunt')}}">Ma Bibliothèque</a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
@@ -23,7 +23,7 @@
 			<div class="collapse navbar-collapse" id="navContent">
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" href="#">Accueil</a>
+						<a class="nav-link" href="{{ path('app_emprunt')}}">Accueil</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="navEmprunts" role="button" data-bs-toggle="dropdown" aria-expanded="false">Emprunts</a>
@@ -38,6 +38,9 @@
 							Abonnés
 						</a>
 						<ul class="dropdown-menu" aria-labelledby="navAbonnes">
+							<li>
+								<a class="dropdown-item" href="{{ path('app_abonne') }}">Liste des Abonnés</a>
+							</li>
 							<li>
 								<a class="dropdown-item" href="{{ path('new_abonne') }}">Ajouter un abonné</a>
 							</li>

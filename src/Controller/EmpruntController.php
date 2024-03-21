@@ -11,6 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
+// #[Route('/')]
+
 class EmpruntController extends AbstractController
 {
     #[Route('/emprunt', name: 'app_emprunt')]
@@ -66,8 +68,8 @@ class EmpruntController extends AbstractController
        return $this->redirectToRoute('app_emprunt');
         }
 
-        return $this->render('emprunt/new.html.twig', [
-            'empruntForm' => $form,
+        return $this->render('emprunt/edit.html.twig', [
+            'empruntForm' => $form->createView(),
             'emprunt' => $emprunt,
         ]);
     }
